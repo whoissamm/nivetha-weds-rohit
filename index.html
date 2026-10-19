@@ -484,17 +484,40 @@ fieldset.field{border:0;padding:0;margin:0}
 .wish-row:hover .wish-track,.wish-row:focus-within .wish-track{animation-play-state:paused}
 @keyframes wmove{to{transform:translateX(-50%)}}
 .wish-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;align-items:start}
-.wish{position:relative;width:300px;flex:none;background:#fbf4e7;border:1px solid rgba(201,149,69,.55);border-radius:16px;padding:26px 22px 18px;box-shadow:0 18px 36px -28px rgba(78,15,18,.55);display:grid;gap:12px;align-content:start}
-.wish-grid .wish{width:auto}
-.wish::before{content:"\201C";position:absolute;top:-8px;left:16px;font-family:var(--f-script);font-size:4.2rem;line-height:1;color:var(--zari)}
-.wish::after{content:"";position:absolute;inset:6px;border:1px dashed rgba(132,30,32,.18);border-radius:11px;pointer-events:none}
-.wish p{margin:0;color:var(--ink);font-size:1rem;line-height:1.6;white-space:pre-line;overflow-wrap:anywhere}
-.wish footer{display:flex;align-items:center;justify-content:flex-start;gap:10px;margin:2px 0 0;padding:0;border:0;width:auto;text-transform:none;letter-spacing:0;font-family:var(--f-body);font-size:1rem;color:inherit;text-align:left;line-height:1.3}
-.wish .av{flex:none;width:32px;height:32px;border-radius:50%;background:var(--maroon);color:#F6C98E;display:grid;place-items:center;font-family:var(--f-display);font-size:.9rem}
-.wish .who{display:grid;line-height:1.25;min-width:0}
-.wish .who b{font-family:var(--f-display);font-weight:400;color:var(--maroon);font-size:.98rem;overflow-wrap:anywhere}
-.wish .who small{color:var(--ink-soft);font-style:italic;font-size:.82rem}
-.wish.mine{box-shadow:0 0 0 2px var(--zari),0 18px 36px -24px rgba(78,15,18,.6)}
+.wish{--w:420px;--h:164px;position:relative;width:var(--w);height:var(--h);flex:none;box-sizing:border-box;padding:20px 52px 16px;
+  display:grid;grid-template-rows:1fr auto;gap:8px;color:#4A1A10;cursor:pointer;text-align:left;font:inherit;border:0;
+  border-radius:26px/42%;
+  background:
+    linear-gradient(90deg,rgba(150,98,34,.16),transparent 6%,transparent 94%,rgba(150,98,34,.16)),
+    repeating-linear-gradient(180deg,rgba(120,84,24,.055) 0 1px,transparent 1px 4px),
+    linear-gradient(180deg,#F4E6BD 0%,#EDDAA6 55%,#E5CB8F 100%);
+  box-shadow:inset 0 0 0 1px rgba(150,98,34,.45),inset 0 1px 0 rgba(255,250,232,.8),0 14px 26px -20px rgba(78,15,18,.55);
+  transition:transform .4s var(--ease),box-shadow .4s}
+.wish:hover,.wish:focus-visible{transform:translateY(-3px);box-shadow:inset 0 0 0 1px rgba(150,98,34,.55),0 20px 30px -20px rgba(78,15,18,.6)}
+.wish::before,.wish::after{content:"";position:absolute;top:50%;width:10px;height:10px;margin-top:-5px;border-radius:50%;
+  background:radial-gradient(circle at 40% 35%,#6b3a16,#2e1406);box-shadow:inset 0 1px 2px rgba(0,0,0,.6),0 1px 0 rgba(255,244,210,.7)}
+.wish::before{left:22px}.wish::after{right:22px}
+.wish .ln{position:absolute;left:46px;right:46px;height:1px;background:rgba(120,64,20,.24)}
+.wish .ln.t{top:10px}.wish .ln.b{bottom:10px}
+.wish .tx{margin:0;font-size:.96rem;line-height:1.55;color:#4A1A10;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow-wrap:anywhere;white-space:pre-line;align-self:start}
+.wish .tx.ta{font-family:var(--f-tamil);font-size:.88rem;line-height:1.7;-webkit-line-clamp:3}
+.wish footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0;padding:0;border:0;width:auto;text-transform:none;letter-spacing:0;font-family:var(--f-body);font-size:1rem;color:inherit;line-height:1.2;min-width:0}
+.wish .nm{font-family:var(--f-script);font-size:1.6rem;color:#7E1F1C;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.wish .nm.ta{font-family:var(--f-tamil);font-weight:600;font-size:.98rem;line-height:1.5}
+.wish .rl{flex:none;font-family:var(--f-display);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:#7a4a1c;border:1px solid rgba(122,74,28,.45);border-radius:999px;padding:3px 9px 2px;white-space:nowrap}
+html[lang=ta] .wish .rl{font-family:var(--f-tamil);letter-spacing:.02em;text-transform:none;font-size:.74rem}
+.wish .kd{position:absolute;left:50%;top:-2px;width:20px;height:20px;margin-left:-10px;color:#9a6a2a;opacity:.65}
+.wish.mine{box-shadow:inset 0 0 0 1px rgba(150,98,34,.45),0 0 0 2px #C99545,0 14px 26px -18px rgba(78,15,18,.6)}
+.wish-row .wish-track{position:relative;padding-block:4px}
+.wish-row .wish-track::before{content:"";position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;background:linear-gradient(180deg,#b23a33,#741c19);box-shadow:0 1px 1px rgba(60,10,8,.25)}
+.wish-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:20px}
+.wish-grid .wish{width:var(--w)}
+@media (max-width:520px){.wish{--w:310px;--h:158px;padding:18px 40px 14px;border-radius:22px/42%}.wish::before{left:16px}.wish::after{right:16px}.wish .ln{left:36px;right:36px}.wish .tx{font-size:.9rem}.wish .tx.ta{font-size:.84rem}}
+.wish-modal{position:fixed;inset:0;z-index:88;display:grid;place-items:center;padding:24px 16px;background:rgba(30,6,8,.72);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.wish-modal .wish{--w:min(600px,92vw);--h:auto;min-height:220px;cursor:default;padding:34px clamp(48px,9vw,70px) 26px;border-radius:34px/40%;gap:18px}
+.wish-modal .wish .tx{-webkit-line-clamp:unset;font-size:1.08rem}
+.wish-modal .wish .nm{font-size:2.2rem}
+.wish-modal .x{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:14px;width:44px;height:44px;border-radius:50%;border:1px solid var(--zari);background:rgba(78,15,18,.6);color:var(--zari-hi);font-size:1.4rem;cursor:pointer}
 .wish-empty{text-align:center;padding:34px 18px;border:1px dashed rgba(201,149,69,.6);border-radius:18px;color:var(--ink-soft);font-style:italic;max-width:620px;margin-inline:auto;width:100%}
 .wish-empty .close-mark{width:70px;margin:0 auto 10px;color:var(--maroon)}
 .wish-tools{display:flex;justify-content:center;margin-bottom:34px}
@@ -871,7 +894,7 @@ footer{width:100%;margin-top:clamp(70px,10vw,110px);padding-top:22px;border-top:
       <div class="sec-head">
         <p class="eyebrow" data-reveal data-i18n="w.eyebrow">Blessings</p>
         <h2 data-split data-i18n="w.title">Send your wishes</h2>
-        <p class="sub" data-reveal style="--d:.2s" data-i18n="w.sub">Leave a few words for Nivetha &amp; Rohit. Every wish appears on this wall.</p>
+        <p class="sub" data-reveal style="--d:.2s" data-i18n="w.sub">Leave a few words for Nivetha &amp; Rohit. Each wish is written on a palm leaf, like the old ஓலைச்சுவடி, and strung on this wall.</p>
       </div>
       <div class="wish-wall" id="wishWall" aria-live="polite"></div>
       <div class="wish-tools"><button class="btn ghost" id="wishToggle" type="button" hidden></button></div>
@@ -1005,7 +1028,7 @@ const I18N = {
   "r.send":"Send RSVP on WhatsApp","r.copy":"Copy my RSVP","r.helpNo":"The RSVP WhatsApp number will be added soon. For now, copy your reply and send it to the family.",
   "r.helpWa":"Opens WhatsApp with your reply ready to send.","r.err":"Please add your name first.","r.copied":"Copied. Thank you, we can't wait to see you!","r.opening":"Opening WhatsApp…",
   "r.m.head":"Vanakkam! RSVP for Nivetha & Rohit's wedding","r.m.name":"Name","r.m.guests":"Guests","r.m.att":"Attending","r.m.none":"Sending blessings, unable to attend","r.m.bless":"Blessing",
-  "nav.wishes":"Wishes","g.single":"The bride & the groom","g.family":"With family","g.couple":"Together","w.eyebrow":"Blessings","w.title":"Send your wishes","w.sub":"Leave a few words for Nivetha & Rohit. Every wish appears on this wall.","w.name":"Your name","w.namePh":"Full name","w.rel":"You are","w.r.family":"Family","w.r.friend":"Friend","w.r.colleague":"Colleague","w.r.wellwisher":"Well-wisher","w.msg":"Your wish","w.msgPh":"Write your blessing for the couple","w.send":"Send blessing","w.sending":"Sending…","w.thanks":"Thank you! Your wish is now on the wall.","w.errName":"Please add your name.","w.errMsg":"Please write a few words.","w.fail":"Could not send right now. Please try again in a moment.","w.offline":"The wishes wall opens soon. Send your blessing on WhatsApp for now:","w.wa":"Send on WhatsApp","w.empty":"Be the first to bless Nivetha & Rohit.","w.loading":"Loading wishes…","w.count1":"wish","w.countN":"wishes","w.all":"See all wishes","w.less":"Show fewer","r.m.wed":"Wedding (15 Nov)","r.m.rec":"Reception (18 Nov)",
+  "nav.wishes":"Wishes","g.single":"The bride & the groom","g.family":"With family","g.couple":"Together","w.eyebrow":"Blessings","w.title":"Send your wishes","w.sub":"Leave a few words for Nivetha & Rohit. Each wish is written on a palm leaf, like the old ஓலைச்சுவடி, and strung on this wall.","w.name":"Your name","w.namePh":"Full name","w.rel":"You are","w.r.family":"Family","w.r.friend":"Friend","w.r.colleague":"Colleague","w.r.wellwisher":"Well-wisher","w.msg":"Your wish","w.msgPh":"Write your blessing for the couple","w.send":"Send blessing","w.sending":"Sending…","w.thanks":"Thank you! Your wish is now on the wall.","w.errName":"Please add your name.","w.errMsg":"Please write a few words.","w.fail":"Could not send right now. Please try again in a moment.","w.offline":"The wishes wall opens soon. Send your blessing on WhatsApp for now:","w.wa":"Send on WhatsApp","w.empty":"Be the first to bless Nivetha & Rohit.","w.loading":"Loading wishes…","w.count1":"wish","w.countN":"wishes","w.all":"See all wishes","w.less":"Show fewer","r.m.wed":"Wedding (15 Nov)","r.m.rec":"Reception (18 Nov)",
   "c.title":"We can't wait to celebrate with you","c.msg":"Your presence and your blessings will make these days complete. With love, from both families.","c.dates":"15 & 18 November 2026",
   "ui.close":"Close","ui.prev":"Previous photo","ui.next":"Next photo","ui.play":"Play music","ui.pause":"Pause music","ui.nowplaying":"Now playing","ui.stopmusic":"Stop the song","ui.taphint":"Tap ▶ on the video to start the song","lang.to":"தமிழ்"
  },
@@ -1038,7 +1061,7 @@ const I18N = {
   "r.send":"WhatsApp-இல் அனுப்பவும்","r.copy":"பதிலை நகலெடுக்கவும்","r.helpNo":"WhatsApp எண் விரைவில் சேர்க்கப்படும். அதுவரை உங்கள் பதிலை நகலெடுத்து குடும்பத்தினருக்கு அனுப்பவும்.",
   "r.helpWa":"உங்கள் பதிலுடன் WhatsApp திறக்கும்.","r.err":"முதலில் உங்கள் பெயரைச் சேர்க்கவும்.","r.copied":"நகலெடுக்கப்பட்டது. நன்றி, உங்களைக் காண ஆவலாக உள்ளோம்!","r.opening":"WhatsApp திறக்கிறது…",
   "r.m.head":"வணக்கம்! நிவேதா & ரோஹித் திருமண வருகை உறுதி","r.m.name":"பெயர்","r.m.guests":"விருந்தினர்","r.m.att":"கலந்துகொள்வது","r.m.none":"வர இயலவில்லை, வாழ்த்துகள்","r.m.bless":"வாழ்த்து",
-  "nav.wishes":"வாழ்த்துகள்","g.single":"மணமகள் & மணமகன்","g.family":"குடும்பத்துடன்","g.couple":"இணைந்து","w.eyebrow":"வாழ்த்துகள்","w.title":"மணமக்களை வாழ்த்துங்கள்","w.sub":"நிவேதா & ரோஹித்துக்கு சில வார்த்தைகள் எழுதுங்கள். ஒவ்வொரு வாழ்த்தும் இங்கே இடம்பெறும்.","w.name":"உங்கள் பெயர்","w.namePh":"முழுப் பெயர்","w.rel":"நீங்கள்","w.r.family":"குடும்பம்","w.r.friend":"நண்பர்","w.r.colleague":"உடன் பணியாளர்","w.r.wellwisher":"நலம் விரும்பி","w.msg":"உங்கள் வாழ்த்து","w.msgPh":"மணமக்களுக்கு உங்கள் வாழ்த்தை எழுதுங்கள்","w.send":"வாழ்த்து அனுப்பு","w.sending":"அனுப்புகிறது…","w.thanks":"நன்றி! உங்கள் வாழ்த்து இங்கே இடம்பெற்றது.","w.errName":"உங்கள் பெயரைச் சேர்க்கவும்.","w.errMsg":"சில வார்த்தைகள் எழுதவும்.","w.fail":"இப்போது அனுப்ப முடியவில்லை. சிறிது நேரம் கழித்து மீண்டும் முயற்சிக்கவும்.","w.offline":"வாழ்த்துச் சுவர் விரைவில் திறக்கும். இப்போது WhatsApp-இல் அனுப்புங்கள்:","w.wa":"WhatsApp-இல் அனுப்பு","w.empty":"நிவேதா & ரோஹித்தை முதலில் வாழ்த்துங்கள்.","w.loading":"வாழ்த்துகள் ஏற்றப்படுகின்றன…","w.count1":"வாழ்த்து","w.countN":"வாழ்த்துகள்","w.all":"அனைத்து வாழ்த்துகளும்","w.less":"குறைவாகக் காட்டு","r.m.wed":"திருமணம் (15 நவ)","r.m.rec":"வரவேற்பு (18 நவ)",
+  "nav.wishes":"வாழ்த்துகள்","g.single":"மணமகள் & மணமகன்","g.family":"குடும்பத்துடன்","g.couple":"இணைந்து","w.eyebrow":"வாழ்த்துகள்","w.title":"மணமக்களை வாழ்த்துங்கள்","w.sub":"நிவேதா & ரோஹித்துக்கு சில வார்த்தைகள் எழுதுங்கள். ஒவ்வொரு வாழ்த்தும் ஓலைச்சுவடியில் எழுதி இங்கே கோர்க்கப்படும்.","w.name":"உங்கள் பெயர்","w.namePh":"முழுப் பெயர்","w.rel":"நீங்கள்","w.r.family":"குடும்பம்","w.r.friend":"நண்பர்","w.r.colleague":"உடன் பணியாளர்","w.r.wellwisher":"நலம் விரும்பி","w.msg":"உங்கள் வாழ்த்து","w.msgPh":"மணமக்களுக்கு உங்கள் வாழ்த்தை எழுதுங்கள்","w.send":"வாழ்த்து அனுப்பு","w.sending":"அனுப்புகிறது…","w.thanks":"நன்றி! உங்கள் வாழ்த்து இங்கே இடம்பெற்றது.","w.errName":"உங்கள் பெயரைச் சேர்க்கவும்.","w.errMsg":"சில வார்த்தைகள் எழுதவும்.","w.fail":"இப்போது அனுப்ப முடியவில்லை. சிறிது நேரம் கழித்து மீண்டும் முயற்சிக்கவும்.","w.offline":"வாழ்த்துச் சுவர் விரைவில் திறக்கும். இப்போது WhatsApp-இல் அனுப்புங்கள்:","w.wa":"WhatsApp-இல் அனுப்பு","w.empty":"நிவேதா & ரோஹித்தை முதலில் வாழ்த்துங்கள்.","w.loading":"வாழ்த்துகள் ஏற்றப்படுகின்றன…","w.count1":"வாழ்த்து","w.countN":"வாழ்த்துகள்","w.all":"அனைத்து வாழ்த்துகளும்","w.less":"குறைவாகக் காட்டு","r.m.wed":"திருமணம் (15 நவ)","r.m.rec":"வரவேற்பு (18 நவ)",
   "c.title":"உங்களுடன் கொண்டாட ஆவலுடன் காத்திருக்கிறோம்","c.msg":"தங்கள் வருகையும் ஆசியும் இந்த நாட்களை நிறைவாக்கும். அன்புடன், இரு குடும்பத்தினர்.","c.dates":"15 & 18 நவம்பர் 2026",
   "ui.close":"மூடு","ui.prev":"முந்தைய புகைப்படம்","ui.next":"அடுத்த புகைப்படம்","ui.play":"இசையை இயக்கு","ui.pause":"இசையை நிறுத்து","ui.nowplaying":"இப்போது ஒலிப்பது","ui.stopmusic":"பாடலை நிறுத்து","ui.taphint":"பாடலைத் தொடங்க வீடியோவில் ▶ தொடவும்","lang.to":"English"
  }
@@ -1386,7 +1409,9 @@ const Wishes=(function(){
   const saveMine=a=>{ try{ localStorage.setItem(mineKey,JSON.stringify(a.slice(-10))); }catch(e){} };
   const relLabel=r=>({family:t("w.r.family"),friend:t("w.r.friend"),colleague:t("w.r.colleague"),wellwisher:t("w.r.wellwisher")}[r]||"");
   const initial=n=>{ const c=[...(n||"?").trim()][0]||"?"; return esc(c.toUpperCase()); };
-  const card=w=>`<article class="wish${w.mine?" mine":""}"><p>${esc(w.message)}</p><footer><span class="av" aria-hidden="true">${initial(w.name)}</span><span class="who"><b>${esc(w.name)}</b>${relLabel(w.relation)?`<small>${relLabel(w.relation)}</small>`:""}</span></footer></article>`;
+  const KD=`<svg class="kd" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><circle cx="12" cy="4" r="1.6"/><circle cx="4" cy="12" r="1.6"/><circle cx="20" cy="12" r="1.6"/><circle cx="12" cy="20" r="1.6"/><circle cx="12" cy="12" r="1.6"/></g><path d="M12 6.5C15 9 15 15 12 17.5C9 15 9 9 12 6.5ZM6.5 12C9 9 15 9 17.5 12C15 15 9 15 6.5 12Z" fill="none" stroke="currentColor" stroke-width="1.1"/></svg>`;
+  const isTa=x=>/[\u0B80-\u0BFF]/.test(x||"");
+  const card=(w,i,full)=>`<article class="wish${w.mine?" mine":""}"${full?"":` tabindex="0" role="button" data-w="${i}" aria-label="${esc(w.name)}"`}><i class="ln t"></i><i class="ln b"></i>${KD}<p class="tx${isTa(w.message)?" ta":""}">${esc(w.message)}</p><footer><span class="nm${isTa(w.name)?" ta":""}">${esc(w.name)}</span>${relLabel(w.relation)?`<span class="rl">${relLabel(w.relation)}</span>`:""}</footer></article>`;
   function merged(){
     const mine=getMine().map(w=>({...w,mine:true}));
     const keys=new Set(list.map(w=>(w.name+"|"+w.message).toLowerCase()));
@@ -1400,21 +1425,31 @@ const Wishes=(function(){
     }
     const n=all.length, head=`<p class="g-label"><i></i><b></b><span>${n} ${n===1?t("w.count1"):t("w.countN")}</span><b></b><i></i></p>`;
     if(n<6||showAll||reduce){
-      wall.innerHTML=head+`<div class="wish-grid">${all.map(card).join("")}</div>`;
+      wall.innerHTML=head+`<div class="wish-grid">${all.map((w,i)=>card(w,i)).join("")}</div>`;
     } else {
-      const a=all.filter((_,i)=>i%2===0), b=all.filter((_,i)=>i%2===1);
-      const row=(items,rev)=>`<div class="wish-row${rev?" rev":""}"><div class="wish-track" style="--dur:${Math.max(40,items.length*9)}s">${items.map(card).join("")}${items.map(card).join("").replace(/<article /g,'<article aria-hidden="true" ')}</div></div>`;
+      const idx=all.map((w,i)=>[w,i]), a=idx.filter((_,i)=>i%2===0), b=idx.filter((_,i)=>i%2===1);
+      const row=(items,rev)=>{ const h=items.map(([w,i])=>card(w,i)).join(""); return `<div class="wish-row${rev?" rev":""}"><div class="wish-track" style="--dur:${Math.max(40,items.length*9)}s">${h}${h.replace(/<article /g,'<article aria-hidden="true" tabindex="-1" ')}</div></div>`; };
       wall.innerHTML=head+row(a,false)+row(b,true);
     }
-    tog.hidden=n<6||reduce; tog.textContent=t(showAll?"w.less":"w.all");
+    tog.hidden=n<6||reduce; tog.textContent=t(showAll?"w.less":"w.all"); current=all;
   }
+  let current=[];
+  function openWish(i){ const w=current[i]; if(!w) return; const m=document.createElement("div"); m.className="wish-modal"; m.setAttribute("role","dialog"); m.setAttribute("aria-modal","true");
+    m.innerHTML=card(w,i,true)+`<button class="x" aria-label="${t("ui.close")}">×</button>`; document.body.appendChild(m); document.body.classList.add("locked");
+    const close=()=>{ m.remove(); document.body.classList.remove("locked"); };
+    m.addEventListener("click",e=>{ if(e.target===m||e.target.closest(".x")) close(); }); m.querySelector(".x").focus();
+    document.addEventListener("keydown",function k(e){ if(e.key==="Escape"){ close(); document.removeEventListener("keydown",k); } }); }
+  wall.addEventListener("click",e=>{ const c=e.target.closest(".wish[data-w]"); if(c) openWish(+c.dataset.w); });
+  wall.addEventListener("keydown",e=>{ if((e.key==="Enter"||e.key===" ")&&e.target.matches(".wish[data-w]")){ e.preventDefault(); openWish(+e.target.dataset.w); } });
   const withTimeout=(ms,opts={})=>{ const c=("AbortController" in window)?new AbortController():null; const id=setTimeout(()=>c&&c.abort(),ms); return [{...opts,...(c?{signal:c.signal}:{})},()=>clearTimeout(id)]; };
   async function load(){
     if(!EP||loading) { render(); return; }
     loading=true; render();
     const [opts,done]=withTimeout(15000);
     try{ const r=await fetch(EP+(EP.includes("?")?"&":"?")+"t="+Date.now(),opts); const j=await r.json();
-      list=(Array.isArray(j)?j:(j.wishes||[])).filter(w=>w&&w.name&&w.message).map(w=>({name:String(w.name).slice(0,60),relation:String(w.relation||""),message:String(w.message).slice(0,300)}));
+      const seen=new Set();
+      list=(Array.isArray(j)?j:(j.wishes||[])).filter(w=>w&&w.name&&w.message).map(w=>({name:String(w.name).slice(0,60),relation:String(w.relation||""),message:String(w.message).slice(0,300)}))
+        .filter(w=>{ const k=(w.name.trim()+"|"+w.message.trim()).toLowerCase(); if(seen.has(k)) return false; seen.add(k); return true; });
     }catch(e){}
     done(); loaded=true; loading=false; render();
   }
