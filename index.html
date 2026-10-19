@@ -1408,13 +1408,15 @@ const Wishes=(function(){
     }
     tog.hidden=n<6||reduce; tog.textContent=t(showAll?"w.less":"w.all");
   }
+  const withTimeout=(ms,opts={})=>{ const c=("AbortController" in window)?new AbortController():null; const id=setTimeout(()=>c&&c.abort(),ms); return [{...opts,...(c?{signal:c.signal}:{})},()=>clearTimeout(id)]; };
   async function load(){
     if(!EP||loading) { render(); return; }
     loading=true; render();
-    try{ const r=await fetch(EP+(EP.includes("?")?"&":"?")+"t="+Date.now()); const j=await r.json();
+    const [opts,done]=withTimeout(15000);
+    try{ const r=await fetch(EP+(EP.includes("?")?"&":"?")+"t="+Date.now(),opts); const j=await r.json();
       list=(Array.isArray(j)?j:(j.wishes||[])).filter(w=>w&&w.name&&w.message).map(w=>({name:String(w.name).slice(0,60),relation:String(w.relation||""),message:String(w.message).slice(0,300)}));
     }catch(e){}
-    loaded=true; loading=false; render();
+    done(); loaded=true; loading=false; render();
   }
   msg.addEventListener("input",()=>{ cnt.textContent=`${msg.value.length} / 300`; });
   tog.addEventListener("click",()=>{ showAll=!showAll; render(); });
@@ -1430,16 +1432,15 @@ const Wishes=(function(){
       return;
     }
     send.disabled=true; send.textContent=t("w.sending"); status.textContent="";
+    const [opts,done]=withTimeout(20000,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({name,relation,message,website:""})});
     try{
-      const r=await fetch(EP,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({name,relation,message,website:""})});
-      let ok=r.ok; try{ const j=await r.json(); ok=ok&&j.ok!==false; }catch(_){}
-      if(!ok) throw new Error("bad");
+      await fetch(EP,opts); done();
       saveMine([...getMine(),{name,relation,message}]);
       msg.value=""; cnt.textContent="0 / 300"; status.textContent=t("w.thanks"); showAll=false; render();
       const b=wall.getBoundingClientRect(); Petals.burst(innerWidth/2,Math.max(80,b.top+60),60);
       wall.scrollIntoView({behavior:reduce?"auto":"smooth",block:"center"});
-      setTimeout(load,2500);
-    }catch(err){ status.textContent=t("w.fail"); }
+      setTimeout(load,3000);
+    }catch(err){ done(); status.textContent=t("w.fail"); }
     send.disabled=false; send.textContent=t("w.send");
   });
   if("IntersectionObserver" in window){ const o=new IntersectionObserver(es=>{ if(es.some(x=>x.isIntersecting)){ o.disconnect(); load(); } },{rootMargin:"600px 0px"}); o.observe($("#wishes")); }
