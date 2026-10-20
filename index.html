@@ -64,7 +64,11 @@ button{font:inherit;color:inherit}
 html[lang=ta] .eyebrow,html[lang=ta] .gate-to,html[lang=ta] .gate-hint,html[lang=ta] .cd-lab,html[lang=ta] .ev dt,html[lang=ta] .field label,html[lang=ta] .field legend,html[lang=ta] .nav-links a,html[lang=ta] .btn,html[lang=ta] .scroll-cue,html[lang=ta] .std-under .day,html[lang=ta] .std-under .mon,html[lang=ta] footer,html[lang=ta] .gf-inside .sm,html[lang=ta] .env-card small,html[lang=ta] .hero-dates span{letter-spacing:.03em;text-transform:none}
 html[lang=ta] .sec-head h2{font-size:clamp(1.6rem,4vw,2.5rem);line-height:1.4}
 html[lang=ta] body{line-height:1.85}
-html[lang=ta] .gf-inside .nm{font-family:var(--f-tamil);font-weight:600;font-size:8cqw;line-height:1.35}
+html[lang=ta] .gf-inside .nm{font-family:var(--f-tamil);font-weight:600;font-size:7cqw;line-height:1.3}
+html[lang=ta] .gf-inside .par{font-size:2.7cqw;line-height:1.5}
+html[lang=ta] .gf-inside .it{font-size:3.3cqw;line-height:1.45}
+html[lang=ta] .gf-inside .gf-dates{font-size:2.85cqw}
+html[lang=ta] .gf-inside{gap:1.1cqw;padding-block:8cqw}
 html[lang=ta] .std-under .what{font-family:var(--f-tamil);font-size:1.05rem;margin-top:8px}
 html[lang=ta] .kural .en{font-family:var(--f-tamil);font-size:clamp(1.15rem,3vw,1.7rem);line-height:1.7}
 html[lang=ta] .closing h2{font-size:clamp(1.5rem,4vw,2.3rem);line-height:1.45}
@@ -535,6 +539,11 @@ html[lang=ta] button.btn{letter-spacing:.03em;text-transform:none;font-family:va
 .closing .inner{display:grid;justify-items:center;gap:18px}
 .close-logo{width:clamp(150px,34vw,210px);aspect-ratio:900/820;margin-block:6px}
 .close-logo .mono{color:#F6C98E}
+.hosts{display:grid;gap:4px;justify-items:center;color:#FBE7C6}
+.hosts p{margin:0;font-family:var(--f-display);font-size:1rem;letter-spacing:.03em;line-height:1.5;max-width:30ch}
+.hosts .hf{font-family:var(--f-script);font-size:2rem;color:var(--zari-hi);line-height:1;margin-bottom:4px}
+html[lang=ta] .hosts p{font-family:var(--f-tamil);font-size:.98rem;letter-spacing:0}
+html[lang=ta] .hosts .hf{font-size:1.1rem}
 .closing .tamil{font-size:1.15rem;color:#fff4de}
 .closing h2{font-family:var(--f-display);font-size:clamp(1.8rem,4.5vw,2.8rem);max-width:20ch;line-height:1.25}
 .closing .names-sm{font-family:var(--f-script);font-size:clamp(4rem,12vw,7rem);line-height:.9;color:var(--zari-hi)}
@@ -711,10 +720,10 @@ footer{width:100%;margin-top:clamp(70px,10vw,110px);padding-top:22px;border-top:
             <p class="tamil gf-line" style="--d:.05s">திருமண அழைப்பிதழ்</p>
             <p class="sm gf-line" style="--d:.12s" data-i18n="gf.bless">By God's grace and with the blessings of our elders</p>
             <p class="it gf-line" style="--d:.2s" data-i18n="gf.invite">our families joyfully invite you to celebrate the wedding of</p>
-            <p class="nm gf-line" style="--d:.32s" data-i18n="name.bride">Nivetha</p>
+            <p class="nm gf-line" style="--d:.32s" data-i18n="name.bride">Dr. M. Nivetha</p>
             <p class="par gf-line" id="brideParents" style="--d:.36s" hidden></p>
             <p class="sm gf-line" style="--d:.42s" data-i18n="gf.with">with</p>
-            <p class="nm gf-line" style="--d:.5s" data-i18n="name.groom">Rohit</p>
+            <p class="nm gf-line" style="--d:.5s" data-i18n="name.groom">Dr. M.K. Rohit</p>
             <p class="par gf-line" id="groomParents" style="--d:.56s" hidden></p>
             <i class="rule gf-line" style="--d:.62s"></i>
             <div class="gf-dates gf-line" style="--d:.7s">
@@ -934,7 +943,8 @@ footer{width:100%;margin-top:clamp(70px,10vw,110px);padding-top:22px;border-top:
       <p class="tamil" data-reveal>அன்புடன் அழைக்கிறோம்</p>
       <h2 data-split data-i18n="c.title">We can't wait to celebrate with you</h2>
       <div class="close-logo" data-reveal="zoom" style="--d:.3s"><svg class="mono" aria-hidden="true"><use href="#nrlogo"/></svg></div>
-      <p class="msg" data-reveal style="--d:.5s" data-i18n="c.msg">Your presence and your blessings will make these days complete. With love, from both families.</p>
+      <p class="msg" data-reveal style="--d:.5s" data-i18n="c.msg">Your presence and your blessings will make these days complete.</p>
+      <div class="hosts" data-reveal style="--d:.6s"><p class="hf" data-i18n="c.from">With love,</p><p data-i18n="c.p1">Mr. N. Marimuthu &amp; Mrs. M. Kartheeswari</p><p data-i18n="c.p2">Mr. M. Satyanarayana &amp; Mrs. M. Vijayalakshmi</p></div>
       <footer>
         <span>Nivetha &amp; Rohit</span><span data-i18n="c.dates">15 &amp; 18 November 2026</span>
       </footer>
@@ -967,8 +977,8 @@ footer{width:100%;margin-top:clamp(70px,10vw,110px);padding-top:22px;border-top:
    EDIT HERE: everything the family may want to change
    ========================================================= */
 const CONFIG = {
-  brideParents: { en:"", ta:"" },   // e.g. en: "Daughter of Mr. ____ & Mrs. ____"
-  groomParents: { en:"", ta:"" },
+  brideParents: { en:"Daughter of Mr. N. Marimuthu & Mrs. M. Kartheeswari", ta:"திரு. N. மாரிமுத்து – திருமதி M. கார்த்தீஸ்வரி அவர்களின் மகள்" },
+  groomParents: { en:"Son of Mr. M. Satyanarayana & Mrs. M. Vijayalakshmi", ta:"திரு. M. சத்யநாராயணா – திருமதி M. விஜயலெட்சுமி அவர்களின் மகன்" },
   tz: "+05:30",                     // time zone of the venue (India = +05:30)
   events: [
     { key:"wedding",   date:"2026-11-15", time:"09:58", hideVenue:true, venue:{en:"",ta:""}, address:"", mapUrl:"" },
@@ -1006,7 +1016,7 @@ const I18N = {
   "ev.wedding":"The Wedding","ev.reception":"The Reception",
   "gf.eyebrow":"The Invitation","gf.title":"You are cordially invited","gf.hint":"Keep scrolling to open the card",
   "gf.bless":"By God's grace and with the blessings of our elders","gf.invite":"our families joyfully invite you to celebrate the wedding of",
-  "name.bride":"Nivetha","name.groom":"Rohit","gf.with":"with",
+  "name.bride":"Dr. M. Nivetha","name.groom":"Dr. M.K. Rohit","gf.with":"with",
   "gf.d1":"Wedding · Sunday, 15 November 2026 · 9:58\u00a0AM","gf.d2":"Reception · Wednesday, 18 November 2026 · from\u00a06\u00a0PM","gf.d3":"Ramkrish Palace, Chrompet","gf.close":"Your presence will make our joy complete.",
   "std.eyebrow":"Save the Date","std.title":"Two days to remember","std.sub":"Scratch the gold leaf to reveal the dates.",
   "day.sun":"Sunday","day.wed":"Wednesday","std.aria":"Gold scratch card. Scratch to reveal the dates: 15 and 18 November 2026.",
@@ -1026,10 +1036,10 @@ const I18N = {
   "r.name":"Your name","r.namePh":"Full name","r.guests":"Number of guests","r.attending":"Attending","r.wed":"Wedding · 15 Nov","r.rec":"Reception · 18 Nov",
   "r.bless":"A blessing for the couple","r.opt":"(optional)","r.blessPh":"Write a few words for Nivetha & Rohit",
   "r.send":"Send RSVP on WhatsApp","r.copy":"Copy my RSVP","r.helpNo":"The RSVP WhatsApp number will be added soon. For now, copy your reply and send it to the family.",
-  "r.helpWa":"Opens WhatsApp with your reply ready to send.","r.err":"Please add your name first.","r.copied":"Copied. Thank you, we can't wait to see you!","r.opening":"Opening WhatsApp…",
+  "r.helpWa":"Opens WhatsApp to the bride's father, Mr. N. Marimuthu (+91 86083 98902), with your reply ready to send.","r.err":"Please add your name first.","r.copied":"Copied. Thank you, we can't wait to see you!","r.opening":"Opening WhatsApp…",
   "r.m.head":"Vanakkam! RSVP for Nivetha & Rohit's wedding","r.m.name":"Name","r.m.guests":"Guests","r.m.att":"Attending","r.m.none":"Sending blessings, unable to attend","r.m.bless":"Blessing",
   "nav.wishes":"Wishes","g.single":"The bride & the groom","g.family":"With family","g.couple":"Together","w.eyebrow":"Blessings","w.title":"Send your wishes","w.sub":"Leave a few words for Nivetha & Rohit. Each wish is written on a palm leaf, like the old ஓலைச்சுவடி, and strung on this wall.","w.name":"Your name","w.namePh":"Full name","w.rel":"You are","w.r.family":"Family","w.r.friend":"Friend","w.r.colleague":"Colleague","w.r.wellwisher":"Well-wisher","w.msg":"Your wish","w.msgPh":"Write your blessing for the couple","w.send":"Send blessing","w.sending":"Sending…","w.thanks":"Thank you! Your wish is now on the wall.","w.errName":"Please add your name.","w.errMsg":"Please write a few words.","w.fail":"Could not send right now. Please try again in a moment.","w.offline":"The wishes wall opens soon. Send your blessing on WhatsApp for now:","w.wa":"Send on WhatsApp","w.empty":"Be the first to bless Nivetha & Rohit.","w.loading":"Loading wishes…","w.count1":"wish","w.countN":"wishes","w.all":"See all wishes","w.less":"Show fewer","r.m.wed":"Wedding (15 Nov)","r.m.rec":"Reception (18 Nov)",
-  "c.title":"We can't wait to celebrate with you","c.msg":"Your presence and your blessings will make these days complete. With love, from both families.","c.dates":"15 & 18 November 2026",
+  "c.title":"We can't wait to celebrate with you","c.msg":"Your presence and your blessings will make these days complete.","c.from":"With love,","c.p1":"Mr.\u00a0N.\u00a0Marimuthu & Mrs.\u00a0M.\u00a0Kartheeswari","c.p2":"Mr.\u00a0M.\u00a0Satyanarayana & Mrs.\u00a0M.\u00a0Vijayalakshmi","c.dates":"15 & 18 November 2026",
   "ui.close":"Close","ui.prev":"Previous photo","ui.next":"Next photo","ui.play":"Play music","ui.pause":"Pause music","ui.nowplaying":"Now playing","ui.stopmusic":"Stop the song","ui.taphint":"Tap ▶ on the video to start the song","lang.to":"தமிழ்"
  },
  ta:{
@@ -1039,7 +1049,7 @@ const I18N = {
   "ev.wedding":"திருமணம்","ev.reception":"வரவேற்பு",
   "gf.eyebrow":"அழைப்பிதழ்","gf.title":"தங்களை அன்புடன் அழைக்கிறோம்","gf.hint":"அழைப்பிதழைத் திறக்க கீழே உருட்டவும்",
   "gf.bless":"இறைவன் திருவருளாலும் பெரியோர்களின் ஆசியுடனும்","gf.invite":"நிகழவிருக்கும் எங்கள் இல்லத் திருமண விழாவிற்குத் தங்களை அன்புடன் அழைக்கிறோம்",
-  "name.bride":"நிவேதா","name.groom":"ரோஹித்","gf.with":"மற்றும்",
+  "name.bride":"Dr. M. நிவேதா","name.groom":"Dr. M.K. ரோஹித்","gf.with":"மற்றும்",
   "gf.d1":"திருமணம் · ஞாயிற்றுக்கிழமை, 15 நவம்பர் 2026 · காலை\u00a09:58","gf.d2":"வரவேற்பு · புதன்கிழமை, 18 நவம்பர் 2026 · மாலை\u00a06\u00a0மணி\u00a0முதல்","gf.d3":"ராமகிருஷ் பேலஸ், குரோம்பேட்டை","gf.close":"தங்கள் வருகையே எங்கள் மகிழ்ச்சி",
   "std.eyebrow":"தேதியைக் குறித்துக்கொள்ளுங்கள்","std.title":"நினைவில் நிற்கும் இரண்டு நாட்கள்","std.sub":"தேதிகளைக் காண தங்கத் தாளைச் சுரண்டவும்.",
   "day.sun":"ஞாயிற்றுக்கிழமை","day.wed":"புதன்கிழமை","std.aria":"தங்கச் சுரண்டல் அட்டை. தேதிகள்: 15 மற்றும் 18 நவம்பர் 2026.",
@@ -1059,10 +1069,10 @@ const I18N = {
   "r.name":"உங்கள் பெயர்","r.namePh":"முழுப் பெயர்","r.guests":"விருந்தினர் எண்ணிக்கை","r.attending":"கலந்துகொள்வது","r.wed":"திருமணம் · 15 நவ","r.rec":"வரவேற்பு · 18 நவ",
   "r.bless":"மணமக்களுக்கு வாழ்த்து","r.opt":"(விருப்பம்)","r.blessPh":"நிவேதா & ரோஹித்துக்கு சில வார்த்தைகள்",
   "r.send":"WhatsApp-இல் அனுப்பவும்","r.copy":"பதிலை நகலெடுக்கவும்","r.helpNo":"WhatsApp எண் விரைவில் சேர்க்கப்படும். அதுவரை உங்கள் பதிலை நகலெடுத்து குடும்பத்தினருக்கு அனுப்பவும்.",
-  "r.helpWa":"உங்கள் பதிலுடன் WhatsApp திறக்கும்.","r.err":"முதலில் உங்கள் பெயரைச் சேர்க்கவும்.","r.copied":"நகலெடுக்கப்பட்டது. நன்றி, உங்களைக் காண ஆவலாக உள்ளோம்!","r.opening":"WhatsApp திறக்கிறது…",
+  "r.helpWa":"மணமகளின் தந்தை திரு. N. மாரிமுத்து (+91 86083 98902) அவர்களுக்கு உங்கள் பதிலுடன் WhatsApp திறக்கும்.","r.err":"முதலில் உங்கள் பெயரைச் சேர்க்கவும்.","r.copied":"நகலெடுக்கப்பட்டது. நன்றி, உங்களைக் காண ஆவலாக உள்ளோம்!","r.opening":"WhatsApp திறக்கிறது…",
   "r.m.head":"வணக்கம்! நிவேதா & ரோஹித் திருமண வருகை உறுதி","r.m.name":"பெயர்","r.m.guests":"விருந்தினர்","r.m.att":"கலந்துகொள்வது","r.m.none":"வர இயலவில்லை, வாழ்த்துகள்","r.m.bless":"வாழ்த்து",
   "nav.wishes":"வாழ்த்துகள்","g.single":"மணமகள் & மணமகன்","g.family":"குடும்பத்துடன்","g.couple":"இணைந்து","w.eyebrow":"வாழ்த்துகள்","w.title":"மணமக்களை வாழ்த்துங்கள்","w.sub":"நிவேதா & ரோஹித்துக்கு சில வார்த்தைகள் எழுதுங்கள். ஒவ்வொரு வாழ்த்தும் ஓலைச்சுவடியில் எழுதி இங்கே கோர்க்கப்படும்.","w.name":"உங்கள் பெயர்","w.namePh":"முழுப் பெயர்","w.rel":"நீங்கள்","w.r.family":"குடும்பம்","w.r.friend":"நண்பர்","w.r.colleague":"உடன் பணியாளர்","w.r.wellwisher":"நலம் விரும்பி","w.msg":"உங்கள் வாழ்த்து","w.msgPh":"மணமக்களுக்கு உங்கள் வாழ்த்தை எழுதுங்கள்","w.send":"வாழ்த்து அனுப்பு","w.sending":"அனுப்புகிறது…","w.thanks":"நன்றி! உங்கள் வாழ்த்து இங்கே இடம்பெற்றது.","w.errName":"உங்கள் பெயரைச் சேர்க்கவும்.","w.errMsg":"சில வார்த்தைகள் எழுதவும்.","w.fail":"இப்போது அனுப்ப முடியவில்லை. சிறிது நேரம் கழித்து மீண்டும் முயற்சிக்கவும்.","w.offline":"வாழ்த்துச் சுவர் விரைவில் திறக்கும். இப்போது WhatsApp-இல் அனுப்புங்கள்:","w.wa":"WhatsApp-இல் அனுப்பு","w.empty":"நிவேதா & ரோஹித்தை முதலில் வாழ்த்துங்கள்.","w.loading":"வாழ்த்துகள் ஏற்றப்படுகின்றன…","w.count1":"வாழ்த்து","w.countN":"வாழ்த்துகள்","w.all":"அனைத்து வாழ்த்துகளும்","w.less":"குறைவாகக் காட்டு","r.m.wed":"திருமணம் (15 நவ)","r.m.rec":"வரவேற்பு (18 நவ)",
-  "c.title":"உங்களுடன் கொண்டாட ஆவலுடன் காத்திருக்கிறோம்","c.msg":"தங்கள் வருகையும் ஆசியும் இந்த நாட்களை நிறைவாக்கும். அன்புடன், இரு குடும்பத்தினர்.","c.dates":"15 & 18 நவம்பர் 2026",
+  "c.title":"உங்களுடன் கொண்டாட ஆவலுடன் காத்திருக்கிறோம்","c.msg":"தங்கள் வருகையும் ஆசியும் இந்த நாட்களை நிறைவாக்கும்.","c.from":"அன்புடன்,","c.p1":"திரு.\u00a0N.\u00a0மாரிமுத்து – திருமதி\u00a0M.\u00a0கார்த்தீஸ்வரி","c.p2":"திரு.\u00a0M.\u00a0சத்யநாராயணா – திருமதி\u00a0M.\u00a0விஜயலெட்சுமி","c.dates":"15 & 18 நவம்பர் 2026",
   "ui.close":"மூடு","ui.prev":"முந்தைய புகைப்படம்","ui.next":"அடுத்த புகைப்படம்","ui.play":"இசையை இயக்கு","ui.pause":"இசையை நிறுத்து","ui.nowplaying":"இப்போது ஒலிப்பது","ui.stopmusic":"பாடலை நிறுத்து","ui.taphint":"பாடலைத் தொடங்க வீடியோவில் ▶ தொடவும்","lang.to":"English"
  }
 };
