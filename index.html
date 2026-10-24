@@ -282,6 +282,11 @@ body.opened .kolam circle.dot,html:not(.js-anim) .kolam circle.dot{opacity:1}
 .gf-inside .nm{font-family:var(--f-script);font-size:14cqw;line-height:.9;color:var(--maroon-deep)}
 .gf-inside .par{font-size:3.1cqw;font-style:italic;color:var(--ink-soft)}
 .gf-inside .gf-dates{display:grid;gap:.8cqw;font-family:var(--f-display);font-size:3.1cqw;letter-spacing:.04em;color:var(--maroon);margin-top:1.2cqw;line-height:1.45}
+.gf-inside .gf-contact{display:grid;gap:.5cqw;justify-items:center;margin-top:.6cqw}
+.gf-inside .gf-contact .sm{font-size:2.2cqw}
+.gf-inside .gf-contact a{font-family:var(--f-display);font-size:2.8cqw;color:var(--maroon);text-decoration:none;letter-spacing:.03em;line-height:1.4}
+.gf-inside .gf-contact .no{white-space:nowrap}
+html[lang=ta] .gf-inside .gf-contact a{font-family:var(--f-tamil);font-size:2.6cqw}
 .gf-inside .rule{width:30cqw;height:1px;background:linear-gradient(90deg,transparent,var(--zari),transparent);margin-block:.8cqw}
 .js-anim .gf-line{opacity:0;transform:translateY(10px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
 .gf-card.revealed .gf-line{opacity:1;transform:none}
@@ -432,6 +437,8 @@ html[lang=ta] .g-label{letter-spacing:.03em;text-transform:none;font-family:var(
 .gallery.g-single,.gallery.g-family{columns:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:900px;margin-inline:auto;width:100%}
 .gallery.g-single .g-item,.gallery.g-family .g-item{margin:0}
 .gallery.g-single{max-width:760px}
+.gallery.g-couple{columns:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.gallery.g-couple .g-item{margin:0}
 .g-item{break-inside:avoid;margin-bottom:18px;position:relative;border-radius:12px;overflow:hidden;cursor:zoom-in;display:block;width:100%;padding:0;border:0;background:var(--ivory-2);box-shadow:0 20px 40px -28px rgba(78,15,18,.6)}
 .g-item .frame{position:relative;aspect-ratio:var(--ar,4/5)}
 .g-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
@@ -568,6 +575,7 @@ footer{width:100%;margin-top:clamp(70px,10vw,110px);padding-top:22px;border-top:
   .ch-photo{aspect-ratio:4/3;border-radius:120px 120px 12px 12px}
   .gallery{columns:2 150px;column-gap:12px}.g-item{margin-bottom:12px}
   .gallery.g-family{grid-template-columns:1fr}.gallery.g-single{gap:12px}
+  .gallery.g-couple{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
   .lightbox{grid-template-columns:minmax(0,1fr)}
   .lb-prev,.lb-next{position:absolute;bottom:calc(30px + env(safe-area-inset-bottom,0px));z-index:2}.lb-prev{left:20px}.lb-next{right:20px}
   .lb-stage{height:min(70svh,700px)}
@@ -735,6 +743,11 @@ footer{width:100%;margin-top:clamp(70px,10vw,110px);padding-top:22px;border-top:
               <span data-i18n="gf.d3">Ramkrish Palace, Chrompet</span>
             </div>
             <p class="it gf-line" style="--d:.82s" data-i18n="gf.close">Your presence will make our joy complete.</p>
+            <div class="gf-contact gf-line" style="--d:.9s">
+              <p class="sm" data-i18n="gf.contact">For enquiries</p>
+              <a href="tel:+917200077276"><span data-i18n="r.toB">Bride's side</span> · <span class="no">+91&nbsp;72000&nbsp;77276</span></a>
+              <a href="tel:+916369721711"><span data-i18n="r.toG">Groom's side</span> · <span class="no">+91&nbsp;63697&nbsp;21711</span></a>
+            </div>
           </div>
           <div class="gf-flap l">
             <div class="face front"><i class="band t"></i><i class="band b"></i><p class="flap-suzhi">உ</p><div class="medal"><svg class="mono" aria-hidden="true"><use href="#nrlogo"/></svg></div><p class="flap-tamil">Dr. நிவேதா</p></div>
@@ -850,6 +863,13 @@ footer{width:100%;margin-top:clamp(70px,10vw,110px);padding-top:22px;border-top:
               <label class="chip"><input type="checkbox" id="rRec" checked><span data-i18n="r.rec">Reception · 18 Nov</span></label>
             </div>
           </fieldset>
+          <fieldset class="field">
+            <legend data-i18n="r.to">Send my RSVP to</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="rTo" value="bride" checked><span data-i18n="r.toB">Bride's side</span></label>
+              <label class="chip"><input type="radio" name="rTo" value="groom"><span data-i18n="r.toG">Groom's side</span></label>
+            </div>
+          </fieldset>
           <div class="field">
             <label for="rMsg"><span data-i18n="r.bless">A blessing for the couple</span> <span class="opt" data-i18n="r.opt">(optional)</span></label>
             <textarea id="rMsg" data-i18n-ph="r.blessPh" placeholder="Write a few words for Nivetha & Rohit"></textarea>
@@ -951,7 +971,7 @@ const CONFIG = {
     { key:"wedding",   date:"2026-11-15", time:"09:58", hideVenue:true, venue:{en:"",ta:""}, address:"", mapUrl:"" },
     { key:"reception", date:"2026-11-18", time:"18:00", from:true, venue:{en:"Ramkrish Palace, Chrompet",ta:"ராமகிருஷ் பேலஸ், குரோம்பேட்டை"}, address:"110, GST Road, Shanthi Nagar, Chromepet, Chennai 600044", mapUrl:"https://www.google.com/maps/search/?api=1&query=Ramkrish+Palace&query_place_id=ChIJN8EUkAlfUjoRaTKH3q6F56c" }
   ],
-  whatsapp: "918608398902",         // RSVP WhatsApp number (country code + number, digits only)
+  whatsapp: { bride:"917200077276", groom:"916369721711" },   // RSVP WhatsApp numbers (country code + number, digits only)
   heroVideo: "media/bg.mp4",
   heroPoster: "photos/poster.jpg",
   teaser: "media/teaser.mp4",
@@ -1002,7 +1022,7 @@ const I18N = {
   "r.name":"Your name","r.namePh":"Full name","r.guests":"Number of guests","r.attending":"Attending","r.wed":"Wedding · 15 Nov","r.rec":"Reception · 18 Nov",
   "r.bless":"A blessing for the couple","r.opt":"(optional)","r.blessPh":"Write a few words for Nivetha & Rohit",
   "r.send":"Send RSVP on WhatsApp","r.copy":"Copy my RSVP","r.helpNo":"The RSVP WhatsApp number will be added soon. For now, copy your reply and send it to the family.",
-  "r.helpWa":"Opens WhatsApp to the bride's father, Mr. N. Marimuthu (+91 86083 98902), with your reply ready to send.","r.err":"Please add your name first.","r.copied":"Copied. Thank you, we can't wait to see you!","r.opening":"Opening WhatsApp…",
+  "r.helpWa":"Opens WhatsApp to the {side} ({num}) with your reply ready to send.","r.to":"Send my RSVP to","r.toB":"Bride's side","r.toG":"Groom's side","gf.contact":"For enquiries","r.err":"Please add your name first.","r.copied":"Copied. Thank you, we can't wait to see you!","r.opening":"Opening WhatsApp…",
   "r.m.head":"Vanakkam! RSVP for Nivetha & Rohit's wedding","r.m.name":"Name","r.m.guests":"Guests","r.m.att":"Attending","r.m.none":"Sending blessings, unable to attend","r.m.bless":"Blessing",
   "nav.wishes":"Wishes","g.single":"The bride & the groom","g.family":"With family","g.couple":"Together","w.eyebrow":"Blessings","w.title":"Send your wishes","w.sub":"Leave a few words for Nivetha & Rohit. Each wish is written on a palm leaf, like the old ஓலைச்சுவடி, and strung on this wall.","w.name":"Your name","w.namePh":"Full name","w.rel":"You are","w.r.family":"Family","w.r.friend":"Friend","w.r.colleague":"Colleague","w.r.wellwisher":"Well-wisher","w.msg":"Your wish","w.msgPh":"Write your blessing for the couple","w.send":"Send blessing","w.sending":"Sending…","w.thanks":"Thank you! Your wish is now on the wall.","w.errName":"Please add your name.","w.errMsg":"Please write a few words.","w.fail":"Could not send right now. Please try again in a moment.","w.offline":"The wishes wall opens soon. Send your blessing on WhatsApp for now:","w.wa":"Send on WhatsApp","w.empty":"Be the first to bless Nivetha & Rohit.","w.loading":"Loading wishes…","w.count1":"wish","w.countN":"wishes","w.all":"See all wishes","w.less":"Show fewer","r.m.wed":"Wedding (15 Nov)","r.m.rec":"Reception (18 Nov)",
   "c.title":"We can't wait to celebrate with you","c.msg":"Your presence and your blessings will make these days complete.","c.from":"With love,","c.p1":"Mr.\u00a0N.\u00a0Marimuthu & Mrs.\u00a0M.\u00a0Kartheeswari","c.p2":"Mr.\u00a0M.\u00a0Satyanarayana & Mrs.\u00a0M.\u00a0Vijayalakshmi","c.dates":"15 & 18 November 2026",
@@ -1035,7 +1055,7 @@ const I18N = {
   "r.name":"உங்கள் பெயர்","r.namePh":"முழுப் பெயர்","r.guests":"விருந்தினர் எண்ணிக்கை","r.attending":"கலந்துகொள்வது","r.wed":"திருமணம் · 15 நவ","r.rec":"வரவேற்பு · 18 நவ",
   "r.bless":"மணமக்களுக்கு வாழ்த்து","r.opt":"(விருப்பம்)","r.blessPh":"நிவேதா & ரோஹித்துக்கு சில வார்த்தைகள்",
   "r.send":"WhatsApp-இல் அனுப்பவும்","r.copy":"பதிலை நகலெடுக்கவும்","r.helpNo":"WhatsApp எண் விரைவில் சேர்க்கப்படும். அதுவரை உங்கள் பதிலை நகலெடுத்து குடும்பத்தினருக்கு அனுப்பவும்.",
-  "r.helpWa":"மணமகளின் தந்தை திரு. N. மாரிமுத்து (+91 86083 98902) அவர்களுக்கு உங்கள் பதிலுடன் WhatsApp திறக்கும்.","r.err":"முதலில் உங்கள் பெயரைச் சேர்க்கவும்.","r.copied":"நகலெடுக்கப்பட்டது. நன்றி, உங்களைக் காண ஆவலாக உள்ளோம்!","r.opening":"WhatsApp திறக்கிறது…",
+  "r.helpWa":"{side} ({num}) அவர்களுக்கு உங்கள் பதிலுடன் WhatsApp திறக்கும்.","r.to":"யாருக்கு அனுப்ப வேண்டும்","r.toB":"மணமகள் வீட்டார்","r.toG":"மணமகன் வீட்டார்","gf.contact":"தொடர்புக்கு","r.err":"முதலில் உங்கள் பெயரைச் சேர்க்கவும்.","r.copied":"நகலெடுக்கப்பட்டது. நன்றி, உங்களைக் காண ஆவலாக உள்ளோம்!","r.opening":"WhatsApp திறக்கிறது…",
   "r.m.head":"வணக்கம்! நிவேதா & ரோஹித் திருமண வருகை உறுதி","r.m.name":"பெயர்","r.m.guests":"விருந்தினர்","r.m.att":"கலந்துகொள்வது","r.m.none":"வர இயலவில்லை, வாழ்த்துகள்","r.m.bless":"வாழ்த்து",
   "nav.wishes":"வாழ்த்துகள்","g.single":"மணமகள் & மணமகன்","g.family":"குடும்பத்துடன்","g.couple":"இணைந்து","w.eyebrow":"வாழ்த்துகள்","w.title":"மணமக்களை வாழ்த்துங்கள்","w.sub":"நிவேதா & ரோஹித்துக்கு சில வார்த்தைகள் எழுதுங்கள். ஒவ்வொரு வாழ்த்தும் ஓலைச்சுவடியில் எழுதி இங்கே கோர்க்கப்படும்.","w.name":"உங்கள் பெயர்","w.namePh":"முழுப் பெயர்","w.rel":"நீங்கள்","w.r.family":"குடும்பம்","w.r.friend":"நண்பர்","w.r.colleague":"உடன் பணியாளர்","w.r.wellwisher":"நலம் விரும்பி","w.msg":"உங்கள் வாழ்த்து","w.msgPh":"மணமக்களுக்கு உங்கள் வாழ்த்தை எழுதுங்கள்","w.send":"வாழ்த்து அனுப்பு","w.sending":"அனுப்புகிறது…","w.thanks":"நன்றி! உங்கள் வாழ்த்து இங்கே இடம்பெற்றது.","w.errName":"உங்கள் பெயரைச் சேர்க்கவும்.","w.errMsg":"சில வார்த்தைகள் எழுதவும்.","w.fail":"இப்போது அனுப்ப முடியவில்லை. சிறிது நேரம் கழித்து மீண்டும் முயற்சிக்கவும்.","w.offline":"வாழ்த்துச் சுவர் விரைவில் திறக்கும். இப்போது WhatsApp-இல் அனுப்புங்கள்:","w.wa":"WhatsApp-இல் அனுப்பு","w.empty":"நிவேதா & ரோஹித்தை முதலில் வாழ்த்துங்கள்.","w.loading":"வாழ்த்துகள் ஏற்றப்படுகின்றன…","w.count1":"வாழ்த்து","w.countN":"வாழ்த்துகள்","w.all":"அனைத்து வாழ்த்துகளும்","w.less":"குறைவாகக் காட்டு","r.m.wed":"திருமணம் (15 நவ)","r.m.rec":"வரவேற்பு (18 நவ)",
   "c.title":"உங்களுடன் கொண்டாட ஆவலுடன் காத்திருக்கிறோம்","c.msg":"தங்கள் வருகையும் ஆசியும் இந்த நாட்களை நிறைவாக்கும்.","c.from":"அன்புடன்,","c.p1":"திரு.\u00a0N.\u00a0மாரிமுத்து – திருமதி\u00a0M.\u00a0கார்த்தீஸ்வரி","c.p2":"திரு.\u00a0M.\u00a0சத்யநாராயணா – திருமதி\u00a0M.\u00a0விஜயலெட்சுமி","c.dates":"15 & 18 நவம்பர் 2026",
@@ -1318,13 +1338,14 @@ const Countdown=(function(){
 
 /* ---------- RSVP ---------- */
 const Rsvp=(function(){
-  let n=1; const out=$("#gCount"),btn=$("#rsvpBtn"),msg=$("#rsvpMsg"),help=$("#rsvpHelp"),wa=(CONFIG.whatsapp||"").replace(/\D/g,"");
+  let n=1; const out=$("#gCount"),btn=$("#rsvpBtn"),msg=$("#rsvpMsg"),help=$("#rsvpHelp"),WA=CONFIG.whatsapp||{},num=k=>String(WA[k]||"").replace(/\D/g,""),side=()=>{ const r=document.querySelector("input[name=rTo]:checked"); return r?r.value:"bride"; }; let wa=num("bride");
+  const fmt=d=>d?`+${d.slice(0,2)} ${d.slice(2,7)} ${d.slice(7)}`:"";
   $("#gMinus").onclick=()=>{ n=Math.max(1,n-1); out.textContent=n; build(); };
   $("#gPlus").onclick=()=>{ n=Math.min(12,n+1); out.textContent=n; build(); };
   function text(){ const ev=[$("#rWed").checked&&t("r.m.wed"),$("#rRec").checked&&t("r.m.rec")].filter(Boolean), b=$("#rMsg").value.trim();
     return `${t("r.m.head")}\n${t("r.m.name")}: ${$("#rName").value.trim()}\n${t("r.m.guests")}: ${n}\n${t("r.m.att")}: ${ev.length?ev.join(", "):t("r.m.none")}`+(b?`\n${t("r.m.bless")}: ${b}`:""); }
-  function build(){ if(wa) btn.href=`https://wa.me/${wa}?text=${encodeURIComponent(text())}`; }
-  function labels(){ btn.textContent=t(wa?"r.send":"r.copy"); help.textContent=t(wa?"r.helpWa":"r.helpNo"); if(!wa) btn.removeAttribute("target"); msg.textContent=""; build(); }
+  function build(){ wa=num(side())||num("bride"); help.textContent=wa?t("r.helpWa").replace("{side}",(x=>LANG==="en"?x.toLowerCase():x)(t(side()==="groom"?"r.toG":"r.toB"))).replace("{num}",fmt(wa)):t("r.helpNo"); if(wa) btn.href=`https://wa.me/${wa}?text=${encodeURIComponent(text())}`; }
+  function labels(){ btn.textContent=t(wa?"r.send":"r.copy"); if(!wa) btn.removeAttribute("target"); msg.textContent=""; build(); }
   $("#rsvpForm").addEventListener("input",build);
   btn.addEventListener("click",e=>{
     if(!$("#rName").value.trim()){ e.preventDefault(); msg.textContent=t("r.err"); $("#rName").focus(); return; }
@@ -1399,7 +1420,7 @@ const Wishes=(function(){
     if(!name){ status.textContent=t("w.errName"); $("#wName").focus(); return; }
     if(!message){ status.textContent=t("w.errMsg"); msg.focus(); return; }
     if(!EP){
-      const wa=(CONFIG.whatsapp||"").replace(/\D/g,"");
+      const wa=String((CONFIG.whatsapp||{}).bride||"").replace(/\D/g,"");
       status.innerHTML=`${t("w.offline")} ${wa?`<a href="https://wa.me/${wa}?text=${encodeURIComponent(name+": "+message)}" target="_blank" rel="noopener">${t("w.wa")}</a>`:""}`;
       return;
     }
