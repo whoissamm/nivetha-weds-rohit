@@ -738,7 +738,7 @@ footer{width:100%;margin-top:clamp(70px,10vw,110px);padding-top:22px;border-top:
             <p class="par gf-line" id="groomParents" style="--d:.56s" hidden></p>
             <i class="rule gf-line" style="--d:.62s"></i>
             <div class="gf-dates gf-line" style="--d:.7s">
-              <span data-i18n="gf.d1">Wedding · Sunday, 15 November 2026 · 9:58&nbsp;AM</span>
+              <span data-i18n="gf.d1">Wedding · Sunday, 15 November 2026 · 9:58&nbsp;AM&nbsp;·&nbsp;Tirumala</span>
               <span data-i18n="gf.d2">Reception · Wednesday, 18 November 2026 · from&nbsp;6&nbsp;PM</span>
               <span data-i18n="gf.d3">Ramkrish Palace, Chrompet</span>
             </div>
@@ -968,7 +968,7 @@ const CONFIG = {
   groomParents: { en:"Son of Mr. M. Satyanarayana & Mrs. M. Vijayalakshmi", ta:"திரு. M. சத்யநாராயணா – திருமதி M. விஜயலெட்சுமி அவர்களின் மகன்" },
   tz: "+05:30",                     // time zone of the venue (India = +05:30)
   events: [
-    { key:"wedding",   date:"2026-11-15", time:"09:58", hideVenue:true, venue:{en:"",ta:""}, address:"", mapUrl:"" },
+    { key:"wedding",   date:"2026-11-15", time:"09:58", venue:{en:"Tirumala",ta:"திருமலை"}, address:"", mapUrl:"https://www.google.com/maps/search/?api=1&query=Tirumala%2C+Andhra+Pradesh" },
     { key:"reception", date:"2026-11-18", time:"18:00", from:true, venue:{en:"Ramkrish Palace, Chrompet",ta:"ராமகிருஷ் பேலஸ், குரோம்பேட்டை"}, address:"110, GST Road, Shanthi Nagar, Chromepet, Chennai 600044", mapUrl:"https://www.google.com/maps/search/?api=1&query=Ramkrish+Palace&query_place_id=ChIJN8EUkAlfUjoRaTKH3q6F56c" }
   ],
   whatsapp: { bride:"917200077276", groom:"916369721711" },   // RSVP WhatsApp numbers (country code + number, digits only)
@@ -1003,7 +1003,7 @@ const I18N = {
   "gf.eyebrow":"The Invitation","gf.title":"You are cordially invited","gf.hint":"Keep scrolling to open the card",
   "gf.bless":"By God's grace and with the blessings of our elders","gf.invite":"our families joyfully invite you to celebrate the wedding of",
   "name.bride":"Dr. M. Nivetha","name.groom":"Dr. M.K. Rohit","gf.with":"with",
-  "gf.d1":"Wedding · Sunday, 15 November 2026 · 9:58\u00a0AM","gf.d2":"Reception · Wednesday, 18 November 2026 · from\u00a06\u00a0PM","gf.d3":"Ramkrish Palace, Chrompet","gf.close":"Your presence will make our joy complete.",
+  "gf.d1":"Wedding · Sunday, 15 November 2026 · 9:58\u00a0AM\u00a0·\u00a0Tirumala","gf.d2":"Reception · Wednesday, 18 November 2026 · from\u00a06\u00a0PM","gf.d3":"Ramkrish Palace, Chrompet","gf.close":"Your presence will make our joy complete.",
   "std.eyebrow":"Save the Date","std.title":"Two days to remember","std.sub":"Scratch the gold leaf to reveal the dates.",
   "day.sun":"Sunday","day.wed":"Wednesday","std.aria":"Gold scratch card. Scratch to reveal the dates: 15 and 18 November 2026.",
   "std.note":"Wedding on Sunday 15 November at 9:58 AM · Reception on Wednesday 18 November from 6 PM","std.c1":"Save the Date","std.c2":"SCRATCH TO REVEAL",
@@ -1036,7 +1036,7 @@ const I18N = {
   "gf.eyebrow":"அழைப்பிதழ்","gf.title":"தங்களை அன்புடன் அழைக்கிறோம்","gf.hint":"அழைப்பிதழைத் திறக்க கீழே உருட்டவும்",
   "gf.bless":"இறைவன் திருவருளாலும் பெரியோர்களின் ஆசியுடனும்","gf.invite":"நிகழவிருக்கும் எங்கள் இல்லத் திருமண விழாவிற்குத் தங்களை அன்புடன் அழைக்கிறோம்",
   "name.bride":"Dr. M. நிவேதா","name.groom":"Dr. M.K. ரோஹித்","gf.with":"மற்றும்",
-  "gf.d1":"திருமணம் · ஞாயிற்றுக்கிழமை, 15 நவம்பர் 2026 · காலை\u00a09:58","gf.d2":"வரவேற்பு · புதன்கிழமை, 18 நவம்பர் 2026 · மாலை\u00a06\u00a0மணி\u00a0முதல்","gf.d3":"ராமகிருஷ் பேலஸ், குரோம்பேட்டை","gf.close":"தங்கள் வருகையே எங்கள் மகிழ்ச்சி",
+  "gf.d1":"திருமணம் · ஞாயிற்றுக்கிழமை, 15 நவம்பர் 2026 · காலை\u00a09:58\u00a0·\u00a0திருமலை","gf.d2":"வரவேற்பு · புதன்கிழமை, 18 நவம்பர் 2026 · மாலை\u00a06\u00a0மணி\u00a0முதல்","gf.d3":"ராமகிருஷ் பேலஸ், குரோம்பேட்டை","gf.close":"தங்கள் வருகையே எங்கள் மகிழ்ச்சி",
   "std.eyebrow":"தேதியைக் குறித்துக்கொள்ளுங்கள்","std.title":"நினைவில் நிற்கும் இரண்டு நாட்கள்","std.sub":"தேதிகளைக் காண தங்கத் தாளைச் சுரண்டவும்.",
   "day.sun":"ஞாயிற்றுக்கிழமை","day.wed":"புதன்கிழமை","std.aria":"தங்கச் சுரண்டல் அட்டை. தேதிகள்: 15 மற்றும் 18 நவம்பர் 2026.",
   "std.note":"திருமணம் ஞாயிற்றுக்கிழமை 15 நவம்பர் காலை 9:58 · வரவேற்பு புதன்கிழமை 18 நவம்பர் மாலை\u00a06\u00a0மணி\u00a0முதல்","std.c1":"தேதியைக் குறித்துக்கொள்ளுங்கள்","std.c2":"சுரண்டிப் பாருங்கள்",
